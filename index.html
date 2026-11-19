@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inicio | La Revolución Rusa 1917</title>
+<meta name="description" content="Historia de la Revolución Rusa de 1917: causas, Revolución de Febrero, Revolución de Octubre y consecuencias.">
+<style>
+  :root{
+    --rojo:#b3141b; --rojo-osc:#7d0c11; --negro:#111; --gris:#1c1c1c;
+    --crema:#f3ede2; --blanco:#fff; --dorado:#c9a24b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Helvetica Neue",Arial,sans-serif;color:var(--negro);background:var(--crema);line-height:1.65;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  ul{list-style:none}
+
+  /* ---------- HEADER ---------- */
+  header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(17,17,17,.92);backdrop-filter:blur(6px);border-bottom:2px solid var(--rojo)}
+  .cntHeader{max-width:1280px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .logo{font-weight:900;font-size:26px;letter-spacing:.18em;color:var(--blanco);display:flex;align-items:center;gap:12px}
+  .logo .star{width:26px;height:26px;color:var(--rojo)}
+  nav ul{display:flex;gap:26px;align-items:center}
+  nav a{color:#ddd;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:6px 0;border-bottom:2px solid transparent;transition:.25s}
+  nav a:hover,nav li.act a{color:#fff;border-color:var(--rojo)}
+  .menuMb{display:none;color:#fff;text-transform:uppercase;letter-spacing:.14em;font-size:13px;cursor:pointer;border:1px solid #666;padding:6px 14px}
+
+  /* ---------- HERO ---------- */
+  .contentIni{position:relative;height:100vh;min-height:560px;display:flex;align-items:flex-end;color:#fff;background:var(--gris);overflow:hidden}
+  .contentIni .bg{position:absolute;inset:0}
+  .contentIni .bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.85) contrast(1.1);transform:scale(1.08);animation:zoom 22s ease-out forwards}
+  @keyframes zoom{to{transform:scale(1)}}
+  .contentIni::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(125,12,17,.55),rgba(0,0,0,.35) 40%,rgba(0,0,0,.85))}
+  .cntIni{position:relative;z-index:2;max-width:1280px;margin:auto;padding:0 24px 90px;width:100%}
+  .cntIni small{display:inline-block;letter-spacing:.35em;text-transform:uppercase;font-size:13px;color:var(--dorado);margin-bottom:16px}
+  .cntIni h1{font-size:clamp(44px,9vw,128px);line-height:.95;font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+  .cntIni h1 span{color:var(--rojo);-webkit-text-stroke:0}
+  .cntIni p{max-width:620px;margin-top:22px;font-size:19px;color:#e8e8e8}
+  .scroll{position:absolute;z-index:2;right:30px;bottom:34px;writing-mode:vertical-rl;letter-spacing:.3em;font-size:11px;text-transform:uppercase;color:#ccc}
+
+  /* ---------- BOTONES ---------- */
+  .btnA{display:inline-block;margin-top:24px;padding:13px 34px;background:var(--rojo);color:#fff;text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:700;transition:.3s;border:2px solid var(--rojo)}
+  .btnA:hover{background:transparent;color:var(--rojo)}
+  .dark .btnA:hover{color:#fff;border-color:#fff}
+
+  /* ---------- SECCIONES ---------- */
+  section.blk{padding:110px 24px}
+  .cnt{max-width:1280px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .cnt.rev .bxCnt{order:2}
+  .eyebrow{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--rojo);font-weight:700;margin-bottom:10px;display:block}
+  h2.text{font-size:clamp(34px,5vw,64px);line-height:1;text-transform:uppercase;font-weight:900;margin-bottom:26px;position:relative;padding-bottom:20px}
+  h2.text::after{content:"";position:absolute;left:0;bottom:0;width:80px;height:6px;background:var(--rojo)}
+  .bxCnt p{font-size:17px;margin-bottom:14px;color:#2a2a2a}
+  .dark{background:var(--negro);color:#fff}
+  .dark .bxCnt p{color:#d6d6d6}
+  .red{background:var(--rojo);color:#fff}
+  .red .bxCnt p{color:#fbe5e5}
+  .red .eyebrow{color:var(--dorado)}
+  .red h2.text::after{background:#fff}
+  .red .btnA{background:#fff;color:var(--rojo);border-color:#fff}
+  .red .btnA:hover{background:transparent;color:#fff}
+
+  .bxImg{position:relative}
+  .bxImg figure{position:relative;background:#222;min-height:320px;box-shadow:18px 18px 0 var(--rojo)}
+  .dark .bxImg figure{box-shadow:18px 18px 0 var(--rojo-osc)}
+  .red .bxImg figure{box-shadow:18px 18px 0 var(--negro)}
+  .bxImg img{width:100%;height:auto;max-height:560px;object-fit:cover;filter:sepia(.25) contrast(1.05)}
+  .bxImg figcaption{font-size:12px;color:#777;padding:10px 0 0;letter-spacing:.04em}
+  .dark .bxImg figcaption,.red .bxImg figcaption{color:#bbb}
+  .noimg::before{content:"☭  imagen histórica";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#666;letter-spacing:.2em;text-transform:uppercase;font-size:12px}
+  .noimg img{display:none}
+
+  /* ---------- DATOS (como liChar) ---------- */
+  .datos{max-width:1280px;margin:70px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .datos li{border:1px solid #333;padding:28px 22px;text-align:center;background:#161616}
+  .datos b{display:block;font-size:44px;color:var(--rojo);font-weight:900;line-height:1}
+  .datos span{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#bbb}
+
+  /* ---------- CRONOLOGIA ---------- */
+  .crono{max-width:900px;margin:0 auto}
+  .crono h2.text{text-align:center}
+  .crono h2.text::after{left:50%;transform:translateX(-50%)}
+  .line{position:relative;margin-top:50px;padding-left:34px;border-left:3px solid var(--rojo)}
+  .line li{position:relative;margin-bottom:34px;padding:18px 22px;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+  .line li::before{content:"";position:absolute;left:-46px;top:24px;width:18px;height:18px;background:var(--rojo);border:4px solid var(--crema);border-radius:50%}
+  .line time{display:block;font-weight:900;color:var(--rojo);letter-spacing:.08em;font-size:14px;text-transform:uppercase}
+  .line strong{display:block;font-size:20px;margin:2px 0 4px}
+  .line p{font-size:15px;color:#444}
+
+  /* ---------- CITA ---------- */
+  .cita{background:var(--gris);color:#fff;text-align:center;padding:90px 24px;border-top:6px solid var(--rojo)}
+  .cita blockquote{max-width:900px;margin:auto;font-size:clamp(22px,3.2vw,38px);font-weight:300;line-height:1.35;font-style:italic}
+  .cita cite{display:block;margin-top:22px;font-style:normal;color:var(--dorado);letter-spacing:.2em;text-transform:uppercase;font-size:13px}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#000;color:#aaa;padding:50px 24px;font-size:13px;text-align:center}
+  footer ul{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+  footer p{max-width:760px;margin:6px auto;letter-spacing:.03em}
+  footer a:hover{color:#fff}
+
+  /* ---------- REVEAL ---------- */
+  .rv{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
+  .rv.in{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .menuMb{display:block}
+    nav{position:fixed;inset:60px 0 auto 0;background:#111;padding:20px 24px;display:none;border-bottom:2px solid var(--rojo)}
+    nav.open{display:block}
+    nav ul{flex-direction:column;align-items:flex-start;gap:16px}
+    .cnt{grid-template-columns:1fr;gap:50px}
+    .cnt.rev .bxCnt{order:0}
+    .datos{grid-template-columns:repeat(2,1fr)}
+    section.blk{padding:80px 24px}
+    .scroll{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="cntHeader">
+    <a href="#inicio" class="logo">
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5l2.9 6.9 7.6.6-5.8 4.9 1.8 7.3L12 17.3l-6.5 3.9 1.8-7.3L1.5 9l7.6-.6z"/></svg>
+      1917
+    </a>
+    <span class="menuMb" id="menuBtn">menú</span>
+    <nav id="nav">
+      <ul>
+        <li class="act"><a href="#inicio">Inicio</a></li>
+        <li><a href="#antecedentes">Antecedentes</a></li>
+        <li><a href="#febrero">Febrero</a></li>
+        <li><a href="#verano">Gobierno Provisional</a></li>
+        <li><a href="#octubre">Octubre</a></li>
+        <li><a href="#lideres">Líderes</a></li>
+        <li><a href="#cronologia">Cronología</a></li>
+        <li><a href="#legado">Legado</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="contentIni" id="inicio">
+  <div class="bg">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Political_demonstration_at_Petrograd%2C_18th_June_1917_%2814264213940%29.jpg?width=1800" alt="Manifestación política en la avenida Nevski, Petrogrado, 18 de junio de 1917" onerror="this.style.display='none'">
+  </div>
+  <div class="cntIni">
+    <small>Petrogrado · 1917</small>
+    <h1>La Revolución <span>Rusa</span></h1>
+    <p>Dos revoluciones en un mismo año que derrocaron a un imperio de tres siglos, cambiaron el mapa político del mundo y marcaron todo el siglo XX.</p>
+    <a href="#antecedentes" class="btnA">Comenzar el recorrido</a>
+  </div>
+  <span class="scroll">Desliza</span>
+</section>
+
+<!-- ANTECEDENTES -->
+<section class="blk" id="antecedentes">
+  <div class="cnt rv">
+    <div class="bxCnt">
+      <span class="eyebrow">Capítulo 01</span>
+      <h2 class="text">Antecedentes</h2>
+      <p>A comienzos del siglo XX, Rusia era un imperio inmenso gobernado por el zar Nicolás II, de la dinastía Romanov, con un poder absoluto y sin parlamento efectivo. La mayoría de la población eran campesinos pobres, mientras una incipiente clase obrera crecía en las fábricas de San Petersburgo y Moscú en condiciones muy duras.</p>
+      <p>La derrota frente a Japón (1904-1905) y la represión del «Domingo Sangriento» de enero de 1905 desataron la primera revolución. Aunque el zar prometió reformas, el descontento nunca desapareció, y la entrada de Rusia en la Primera Guerra Mundial en 1914 agravó el hambre, las derrotas militares y la crisis económica.</p>
+      <a href="#febrero" class="btnA">Leer más</a>
+    </div>
+    <div class="bxImg">
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Russian_Imperial_Family_1913.jpg?width=1000" alt="La familia imperial rusa en 1913" loading="lazy" onerror="this.parentNode.classList.add('noimg')">
+        <figcaption>La familia imperial Romanov, 1913. Fuente: Wikimedia Commons (dominio público).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- FEBRERO -->
+<section class="blk dark" id="febrero">
+  <div class="cnt rev rv">
+    <div class="bxCnt">
+      <span class="eyebrow">Capítulo 02</span>
+      <h2 class="text">Revolución de Febrero</h2>
+      <p>El 23 de febrero de 1917 (8 de marzo en el calendario actual), el Día Internacional de la Mujer, miles de obreras salieron a las calles de Petrogrado pidiendo pan y el fin de la guerra. Las huelgas se extendieron en pocos días y los soldados enviados a reprimir se unieron a los manifestantes.</p>
+      <p>Sin apoyo del ejército, Nicolás II abdicó el 15 de marzo de 1917 (2 de marzo en el calendario juliano). Terminaban más de 300 años de dinastía Romanov y nacía un Gobierno Provisional, mientras los obreros y soldados formaban el Sóviet de Petrogrado, creando un doble poder.</p>
+      <a href="#verano" class="btnA">Leer más</a>
+    </div>
+    <div class="bxImg">
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/19170704_Riot_on_Nevsky_prosp_Petrograd.jpg?width=1000" alt="Disturbios en la avenida Nevski, Petrogrado, 1917" loading="lazy" onerror="this.parentNode.classList.add('noimg')">
+        <figcaption>Manifestación en la avenida Nevski, Petrogrado, 1917. Fuente: Wikimedia Commons.</figcaption>
+      </figure>
+    </div>
+  </div>
+  <ul class="datos rv">
+    <li><b>300+</b><span>años de dinastía Romanov</span></li>
+    <li><b>8 mar</b><span>inicio de las protestas</span></li>
+    <li><b>15 mar</b><span>abdicación del zar</span></li>
+    <li><b>2</b><span>poderes rivales</span></li>
+  </ul>
+</section>
+
+<!-- GOBIERNO PROVISIONAL -->
+<section class="blk" id="verano">
+  <div class="cnt rv">
+    <div class="bxCnt">
+      <span class="eyebrow">Capítulo 03</span>
+      <h2 class="text">Gobierno Provisional</h2>
+      <p>El nuevo gobierno, dirigido finalmente por Aleksandr Kérenski, decidió continuar la guerra y posponer las reformas, entre ellas el reparto de tierras. Mientras tanto, el hambre y el desabastecimiento seguían creciendo y los soviets ganaban influencia entre obreros, soldados y marineros.</p>
+      <p>En abril regresó del exilio Vladimir Lenin con sus «Tesis de Abril», que exigían «paz, pan y tierra» y «todo el poder para los soviets». Las manifestaciones de junio y las jornadas de julio mostraron que el gobierno perdía el control de la capital.</p>
+      <a href="#octubre" class="btnA">Leer más</a>
+    </div>
+    <div class="bxImg">
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Political_demonstration_at_Petrograd%2C_18th_June_1917_%2814264213940%29.jpg?width=1000" alt="Manifestación del 18 de junio de 1917 en Petrogrado" loading="lazy" onerror="this.parentNode.classList.add('noimg')">
+        <figcaption>Manifestación del 18 de junio de 1917 en Petrogrado. Fuente: Wikimedia Commons.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- OCTUBRE -->
+<section class="blk red" id="octubre">
+  <div class="cnt rev rv">
+    <div class="bxCnt">
+      <span class="eyebrow">Capítulo 04</span>
+      <h2 class="text">Revolución de Octubre</h2>
+      <p>En la noche del 25 al 26 de octubre de 1917 (7 y 8 de noviembre en el calendario actual), los bolcheviques, con el apoyo de la Guardia Roja, soldados y marineros, tomaron los puntos clave de Petrogrado y el Palacio de Invierno, sede del Gobierno Provisional. La toma fue más organizada que sangrienta, aunque después fue recreada como una gran epopeya.</p>
+      <p>Al día siguiente, el Congreso de los Soviets proclamó un nuevo gobierno, el Consejo de Comisarios del Pueblo, presidido por Lenin, y aprobó los decretos sobre la paz y la tierra.</p>
+      <a href="#lideres" class="btnA">Leer más</a>
+    </div>
+    <div class="bxImg">
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Red_Guard_Vulkan_factory.jpg?width=1000" alt="Guardias Rojos de la fábrica Vulkan, Petrogrado, 1917" loading="lazy" onerror="this.parentNode.classList.add('noimg')">
+        <figcaption>Guardias Rojos de la fábrica Vulkan, Petrogrado, 1917. Fuente: Wikimedia Commons.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- LIDERES -->
+<section class="blk dark" id="lideres">
+  <div class="cnt rv">
+    <div class="bxCnt">
+      <span class="eyebrow">Capítulo 05</span>
+      <h2 class="text">Protagonistas</h2>
+      <p><strong>Nicolás II</strong> fue el último zar de Rusia; su abdicación puso fin a la autocracia. <strong>Aleksandr Kérenski</strong> encabezó el Gobierno Provisional hasta octubre. <strong>Vladimir Ilich Lenin</strong> lideró a los bolcheviques y presidió el primer gobierno soviético. <strong>León Trotski</strong> organizó el Comité Militar Revolucionario que dirigió el levantamiento y luego el Ejército Rojo.</p>
+      <p>Junto a ellos, millones de obreros, campesinos, soldados y mujeres impulsaron un proceso que ninguna figura individual controlaba por completo.</p>
+      <a href="#cronologia" class="btnA">Ver cronología</a>
+    </div>
+    <div class="bxImg">
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vladimir_Lenin_Speech_in_May_1920.jpg?width=1000" alt="Lenin pronunciando un discurso en Moscú, mayo de 1920" loading="lazy" onerror="this.parentNode.classList.add('noimg')">
+        <figcaption>Lenin hablando a las tropas en Moscú, mayo de 1920. Foto: G. P. Goldstein. Fuente: Wikimedia Commons (dominio público).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CITA -->
+<div class="cita">
+  <blockquote>«Paz, pan y tierra»: la consigna que resumió las demandas de obreros, soldados y campesinos en 1917.</blockquote>
+  <cite>Lema bolchevique · 1917</cite>
+</div>
+
+<!-- CRONOLOGIA -->
+<section class="blk" id="cronologia">
+  <div class="crono rv">
+    <h2 class="text">Cronología</h2>
+    <ul class="line">
+      <li><time>22 ene 1905</time><strong>Domingo Sangriento</strong><p>La guardia imperial dispara contra una marcha pacífica en San Petersburgo y estalla la primera revolución rusa.</p></li>
+      <li><time>1914</time><strong>Entrada en la Gran Guerra</strong><p>Rusia combate contra Alemania y Austria-Hungría con enormes pérdidas humanas y escasez en el frente interno.</p></li>
+      <li><time>Marzo 1917</time><strong>Revolución de Febrero</strong><p>Huelgas y motines en Petrogrado; el zar Nicolás II abdica el 15 de marzo.</p></li>
+      <li><time>Abril 1917</time><strong>Regreso de Lenin</strong><p>Presenta las «Tesis de Abril» y propone transferir el poder a los soviets.</p></li>
+      <li><time>Noviembre 1917</time><strong>Revolución de Octubre</strong><p>Los bolcheviques toman el Palacio de Invierno y derrocan al Gobierno Provisional.</p></li>
+      <li><time>Marzo 1918</time><strong>Tratado de Brest-Litovsk</strong><p>La Rusia soviética firma la paz con las Potencias Centrales y abandona la guerra.</p></li>
+      <li><time>1918 – 1922</time><strong>Guerra Civil</strong><p>El Ejército Rojo enfrenta a los «blancos» y a intervenciones extranjeras. Los bolcheviques salen victoriosos.</p></li>
+      <li><time>30 dic 1922</time><strong>Nace la URSS</strong><p>Se funda la Unión de Repúblicas Socialistas Soviéticas.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- LEGADO -->
+<section class="blk dark" id="legado">
+  <div class="cnt rv">
+    <div class="bxCnt">
+      <span class="eyebrow">Capítulo 06</span>
+      <h2 class="text">Legado</h2>
+      <p>La Revolución Rusa dio origen al primer Estado dirigido por un partido comunista y abrió la rivalidad ideológica que dominaría el siglo XX, con la Guerra Fría como su expresión más conocida. Inspiró movimientos políticos y sociales en todos los continentes, incluida América Latina.</p>
+      <p>Sus resultados siguen debatidos: para unos representó la esperanza de justicia social; para otros, el inicio de un régimen autoritario marcado por la guerra civil, la represión y el hambre. Comprender sus causas y consecuencias exige estudiarla con fuentes diversas.</p>
+      <a href="#inicio" class="btnA">Volver al inicio</a>
+    </div>
+    <div class="bxImg">
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kustodiev_The_Bolshevik.jpg?width=1000" alt="«El bolchevique», pintura de Borís Kustódiev, 1920" loading="lazy" onerror="this.parentNode.classList.add('noimg')">
+        <figcaption>«El bolchevique», de Borís Kustódiev (1920). Fuente: Wikimedia Commons.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <ul>
+    <li>© 2026 La Revolución Rusa · Proyecto educativo</li>
+    <li><a href="#antecedentes">Antecedentes</a></li>
+    <li><a href="#octubre">Octubre</a></li>
+    <li><a href="#cronologia">Cronología</a></li>
+  </ul>
+  <p>Las fechas de 1917 se dan en el calendario gregoriano; en Rusia regía entonces el calendario juliano, con 13 días de diferencia.</p>
+  <p>Imágenes: Wikimedia Commons, materiales de dominio público o con licencia libre.</p>
+</footer>
+
+<script>
+  // Menú móvil
+  const btn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+  btn.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+  // Aparición al hacer scroll
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // Menú activo según la sección
+  const links=[...nav.querySelectorAll('li')];ss
+  const secs=[...document.querySelectorAll('section[id]')];
+  window.addEventListener('scroll',()=>{
+    let cur=secs[0].id;
+    secs.forEach(s=>{if(window.scrollY>=s.offsetTop-140)cur=s.id});
+    links.forEach(li=>li.classList.toggle('act',li.firstElementChild.getAttribute('href')==='#'+cur));
+  },{passive:true});
+</script>
+</body>
+</html>
+
+
